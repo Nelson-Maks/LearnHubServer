@@ -1,4 +1,4 @@
-const adminMiddleware = (req, res, next) => {
+const instructorMiddleware = (req, res, next) => {
   if (req.user && req.user.role === "instructor") {
     next();
   } else {
@@ -6,4 +6,4 @@ const adminMiddleware = (req, res, next) => {
   }
 };
 
-export default adminMiddleware;
+export default instructorMiddleware;

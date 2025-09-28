@@ -1,7 +1,7 @@
 import express from "express";
 import Course from "../models/course.js";
 import protect from "../middleware/authMiddle.js";
-import adminMiddleware from "../middleware/adminMiddleWare.js";
+import instructorMiddleware from "../middleware/instructorMiddleware.js";
 import { updateProgress } from "../controllers/courseControllers.js";
 
 const router = express.Router();
@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
 });
 
 // Create a new course (admins only)
-router.post("/", protect, adminMiddleware, async (req, res) => {
+router.post("/", protect, instructorMiddleware, async (req, res) => {
   const { title, description } = req.body;
 
   try {
