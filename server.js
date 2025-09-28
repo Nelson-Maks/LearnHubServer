@@ -14,7 +14,11 @@ connectDB()
 
 // MIDDLEWARE
 const app = express()
-app.use(cors())
+app.use(cors({
+  origin: "https://learn-hub-flame.vercel.app", // your frontend URL
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
+}));
 app.use(express.json())
 
 
